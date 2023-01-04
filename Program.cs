@@ -1,10 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using CshIntermediate.Assignment2;
 
 namespace CshIntermediate
 {
     class Program {
         static void Main(string[] args){
-            Assignment1.run();
+            Assignment2.Assignment2.Run();
         }
     }
 }
