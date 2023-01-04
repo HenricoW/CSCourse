@@ -18,6 +18,10 @@ namespace CshIntermediate.Assignment2
             SaveFileCommand saveCommand = new SaveFileCommand(manager);
             manager.AddCommand("SaveFile", saveCommand);
 
+            LoadFileState loadState = new LoadFileState();
+            LoadFileCommand loadCommand = new LoadFileCommand(manager);
+            manager.AddCommand("LoadFile", loadCommand);
+
             manager.Run();
         }
     }
