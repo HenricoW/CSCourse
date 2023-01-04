@@ -14,6 +14,10 @@ namespace CshIntermediate.Assignment2
             manager = new StateManager(mainMenuState, initCommandName, initCommand);
             mainMenuState.SetManager(manager);
 
+            SaveFileState saveState = new SaveFileState();
+            SaveFileCommand saveCommand = new SaveFileCommand(manager);
+            manager.AddCommand("SaveFile", saveCommand);
+
             manager.Run();
         }
     }

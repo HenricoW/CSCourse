@@ -8,4 +8,19 @@ namespace CshIntermediate.Assignment2
         }
     }
 
+    class SaveFileCommand : Command
+    {
+        public StateManager _manager { get; set; }
+
+        public SaveFileCommand(StateManager manager)
+        {
+            _manager = manager;
+        }
+
+        public override void Execute()
+        {
+            _manager.SetState(new SaveFileState());
+        }
+    }
+
 }
