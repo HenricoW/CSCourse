@@ -22,6 +22,10 @@ namespace CshIntermediate.Assignment2
             LoadFileCommand loadCommand = new LoadFileCommand(manager);
             manager.AddCommand("LoadFile", loadCommand);
 
+            StartGameState startState = new StartGameState();
+            StartGameCommand startCommand = new StartGameCommand(manager);
+            manager.AddCommand("StartGame", startCommand);
+
             manager.Run();
         }
     }

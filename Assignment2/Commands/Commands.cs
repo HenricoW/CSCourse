@@ -38,4 +38,18 @@ namespace CshIntermediate.Assignment2
         }
     }
 
+    class StartGameCommand : Command
+    {
+        public StateManager _manager { get; set; }
+
+        public StartGameCommand(StateManager manager)
+        {
+            _manager = manager;
+        }
+
+        public override void Execute()
+        {
+            _manager.SetState(new StartGameState());
+        }
+    }
 }
