@@ -19,7 +19,7 @@ namespace CshIntermediate.Assignment2
 
         public override void Execute()
         {
-            _manager.SetState(new LoadFileState());
+            _manager.SetState(new LoadFileState(_manager));
         }
     }
 
@@ -34,7 +34,7 @@ namespace CshIntermediate.Assignment2
 
         public override void Execute()
         {
-            _manager.SetState(new SaveFileState());
+            _manager.SetState(new SaveFileState(_manager));
         }
     }
 
@@ -49,7 +49,22 @@ namespace CshIntermediate.Assignment2
 
         public override void Execute()
         {
-            _manager.SetState(new StartGameState());
+            _manager.SetState(new StartGameState(_manager));
+        }
+    }
+
+    class BackCommand : Command
+    {
+        public StateManager _manager { get; set; }
+
+        public BackCommand(StateManager manager)
+        {
+            _manager = manager;
+        }
+
+        public override void Execute()
+        {
+            _manager.SetState(_manager.prevState);
         }
     }
 }

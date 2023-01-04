@@ -14,17 +14,20 @@ namespace CshIntermediate.Assignment2
             manager = new StateManager(mainMenuState, initCommandName, initCommand);
             mainMenuState.SetManager(manager);
 
-            SaveFileState saveState = new SaveFileState();
+            SaveFileState saveState = new SaveFileState(manager);
             SaveFileCommand saveCommand = new SaveFileCommand(manager);
             manager.AddCommand("SaveFile", saveCommand);
 
-            LoadFileState loadState = new LoadFileState();
+            LoadFileState loadState = new LoadFileState(manager);
             LoadFileCommand loadCommand = new LoadFileCommand(manager);
             manager.AddCommand("LoadFile", loadCommand);
 
-            StartGameState startState = new StartGameState();
+            StartGameState startState = new StartGameState(manager);
             StartGameCommand startCommand = new StartGameCommand(manager);
             manager.AddCommand("StartGame", startCommand);
+
+            BackCommand backCommand = new BackCommand(manager);
+            manager.AddCommand("Back", backCommand);
 
             manager.Run();
         }

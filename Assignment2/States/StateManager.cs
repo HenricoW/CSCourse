@@ -5,6 +5,7 @@ namespace CshIntermediate.Assignment2
     class StateManager
     {
         // state props
+        public State prevState { get; private set; }
         public State currentState { get; private set; }
         // all commands the state machine supports
         public Dictionary<string, Command> commands { get; private set; }
@@ -12,6 +13,7 @@ namespace CshIntermediate.Assignment2
         // [if not static] constructor - set init state
         public StateManager(State initialState, string commandName, Command initialCommand)
         {
+            prevState = initialState;
             currentState = initialState;
             commands = new Dictionary<string, Command>();
             commands.Add(commandName, initialCommand);
@@ -41,6 +43,7 @@ namespace CshIntermediate.Assignment2
 
         public void SetState(State newState)
         {
+            prevState = currentState;
             currentState = newState;
             Run();
         }
