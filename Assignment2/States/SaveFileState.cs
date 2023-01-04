@@ -4,10 +4,8 @@ namespace CshIntermediate.Assignment2
     {
         public StateManager _manager { get; private set; }
 
-        public SaveFileState(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public SaveFileState(StateManager manager) { _manager = manager; }
+
         public override void Display()
         {
             Console.WriteLine("[Save file] - Set a name for the new file to be saved");
@@ -21,13 +19,11 @@ namespace CshIntermediate.Assignment2
             // handle back choice
             int number = 1;
             if (fileName.Length == 1 && int.TryParse(fileName, out number))
-            {
                 if (number == 0)
                 {
                     _manager.ChangeState("Back");
                     return;
                 }
-            }
 
             fileName = fileName.Split(".")[0]; // if extension is given
             try

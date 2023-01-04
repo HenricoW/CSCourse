@@ -2,20 +2,14 @@ namespace CshIntermediate.Assignment2
 {
     class HelpCommand : Command
     {
-        public override void Execute()
-        {
-            Console.WriteLine("Help displayed!");
-        }
+        public override void Execute() { Console.WriteLine("Help displayed!"); }
     }
 
     class LoadFileCommand : Command
     {
         public StateManager _manager { get; set; }
 
-        public LoadFileCommand(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public LoadFileCommand(StateManager manager) { _manager = manager; }
 
         public override void Execute()
         {
@@ -30,10 +24,7 @@ namespace CshIntermediate.Assignment2
     {
         public StateManager _manager { get; set; }
 
-        public SaveFileCommand(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public SaveFileCommand(StateManager manager) { _manager = manager; }
 
         public override void Execute()
         {
@@ -48,10 +39,7 @@ namespace CshIntermediate.Assignment2
     {
         public StateManager _manager { get; set; }
 
-        public StartGameCommand(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public StartGameCommand(StateManager manager) { _manager = manager; }
 
         public override void Execute()
         {
@@ -66,25 +54,17 @@ namespace CshIntermediate.Assignment2
     {
         public StateManager _manager { get; set; }
 
-        public BackCommand(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public BackCommand(StateManager manager) { _manager = manager; }
 
-        public override void Execute()
-        {
-            _manager.SetState(_manager.prevState);
-        }
+        public override void Execute() { _manager.SetState(_manager.prevState); }
     }
 
     class ExitCommand : Command
     {
         public StateManager _manager { get; set; }
 
-        public ExitCommand(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public ExitCommand(StateManager manager) { _manager = manager; }
+
         public override void Execute()
         {
             State? state;

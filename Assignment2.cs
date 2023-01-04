@@ -7,33 +7,25 @@ namespace CshIntermediate.Assignment2
 
         public static void Run()
         {
-            MainMenuState mainMenuState = new MainMenuState();
+            // define all states and commands once, to used throughout app
             string stateName = "MainMenu";
-            HelpCommand initCommand = new HelpCommand();
-
-            manager = new StateManager(stateName, mainMenuState, "ShowHelp", initCommand);
+            MainMenuState mainMenuState = new MainMenuState();
+            manager = new StateManager(stateName, mainMenuState, "ShowHelp", new HelpCommand());
             mainMenuState.SetManager(manager);
 
-            SaveFileState saveState = new SaveFileState(manager);
-            SaveFileCommand saveCommand = new SaveFileCommand(manager);
             stateName = "SaveFile";
-            manager.AddCommand(stateName, saveCommand);
-            manager.AddState(stateName, saveState);
+            manager.AddCommand(stateName, new SaveFileCommand(manager));
+            manager.AddState(stateName, new SaveFileState(manager));
 
-            LoadFileState loadState = new LoadFileState(manager);
-            LoadFileCommand loadCommand = new LoadFileCommand(manager);
             stateName = "LoadFile";
-            manager.AddCommand(stateName, loadCommand);
-            manager.AddState(stateName, loadState);
+            manager.AddCommand(stateName, new LoadFileCommand(manager));
+            manager.AddState(stateName, new LoadFileState(manager));
 
-            StartGameState startState = new StartGameState(manager);
-            StartGameCommand startCommand = new StartGameCommand(manager);
             stateName = "StartGame";
-            manager.AddCommand(stateName, startCommand);
-            manager.AddState(stateName, startState);
+            manager.AddCommand(stateName, new StartGameCommand(manager));
+            manager.AddState(stateName, new StartGameState(manager));
 
-            BackCommand backCommand = new BackCommand(manager);
-            manager.AddCommand("Back", backCommand);
+            manager.AddCommand("Back", new BackCommand(manager));
 
             manager.AddCommand("Exit", new ExitCommand(manager));
             manager.AddState("Exit", new ExitState(manager));

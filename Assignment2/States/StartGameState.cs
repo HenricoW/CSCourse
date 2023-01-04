@@ -4,10 +4,7 @@ namespace CshIntermediate.Assignment2
     {
         public StateManager _manager { get; private set; }
 
-        public StartGameState(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public StartGameState(StateManager manager) { _manager = manager; }
 
         public override void Display()
         {

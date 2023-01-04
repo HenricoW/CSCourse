@@ -5,10 +5,7 @@ namespace CshIntermediate.Assignment2
         private List<FileInfo> fileList = new List<FileInfo>();
         public StateManager _manager { get; private set; }
 
-        public LoadFileState(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public LoadFileState(StateManager manager) { _manager = manager; }
 
         public override void Display()
         {
@@ -18,10 +15,8 @@ namespace CshIntermediate.Assignment2
 
             Console.WriteLine("[Load file] - Select a file to load");
             int idx = 0;
-            foreach (FileInfo file in fileList)
-            {
-                Console.WriteLine($"{++idx} - {file.Name}");
-            }
+            foreach (FileInfo file in fileList) Console.WriteLine($"{++idx} - {file.Name}");
+
             Console.WriteLine("[0 - Go back]");
             Console.WriteLine();
         }

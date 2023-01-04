@@ -4,10 +4,7 @@ namespace CshIntermediate.Assignment2
     {
         public StateManager _manager { get; set; }
 
-        public ExitState(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public ExitState(StateManager manager) { _manager = manager; }
 
         public override void Display() { return; }
         public override void GetCommand() { return; }

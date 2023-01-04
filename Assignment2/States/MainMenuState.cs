@@ -16,10 +16,7 @@ namespace CshIntermediate.Assignment2
             Console.WriteLine(prompt);
         }
 
-        public void SetManager(StateManager manager)
-        {
-            _manager = manager;
-        }
+        public void SetManager(StateManager manager) { _manager = manager; }
 
         public override void GetCommand()
         {
