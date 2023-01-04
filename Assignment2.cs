@@ -8,10 +8,10 @@ namespace CshIntermediate.Assignment2
         public static void Run()
         {
             MainMenuState mainMenuState = new MainMenuState();
-            string stateName = "ShowHelp";
+            string stateName = "MainMenu";
             HelpCommand initCommand = new HelpCommand();
 
-            manager = new StateManager(stateName, mainMenuState, stateName, initCommand);
+            manager = new StateManager(stateName, mainMenuState, "ShowHelp", initCommand);
             mainMenuState.SetManager(manager);
 
             SaveFileState saveState = new SaveFileState(manager);

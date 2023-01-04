@@ -27,6 +27,10 @@ namespace CshIntermediate.Assignment2
             Console.WriteLine();
             currentState.Display();
             currentState.GetCommand();
+
+            State? state;
+            if (!supportedStates.TryGetValue("MainMenu", out state)) { return; }
+            SetState(state);
         }
 
         public void AddCommand(string commandName, Command command)
