@@ -1,5 +1,7 @@
-namespace CshIntermediate.Assignment2 {
-    abstract class State {
+namespace CshIntermediate.Assignment2
+{
+    abstract class State
+    {
         // display on screen and show supported commands
         abstract public void Display();
 
@@ -7,16 +9,19 @@ namespace CshIntermediate.Assignment2 {
         abstract public void GetCommand();
     }
 
-    abstract class Command {
+    abstract class Command
+    {
         // helpers
-        static public string getString(string prompt){
+        static public string getString(string prompt)
+        {
             Console.Write(prompt);
-            var input  = Console.ReadLine();
+            var input = Console.ReadLine();
 
             return input == null ? "" : input;
         }
 
-        static public int getInt(string prompt){
+        static public int getInt(string prompt)
+        {
             Console.Write(prompt);
             var input  = Console.ReadLine();
 

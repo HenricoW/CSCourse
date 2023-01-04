@@ -1,7 +1,8 @@
-namespace CshIntermediate.Assignment2 {
+namespace CshIntermediate.Assignment2
+{
     class MainMenuState : State
     {
-        public StateManager? _manager { get; private set;}
+        public StateManager? _manager { get; private set; }
 
         public override void Display()
         {
@@ -14,19 +15,22 @@ namespace CshIntermediate.Assignment2 {
             Console.WriteLine(prompt);
         }
 
-        public void SetManager(StateManager manager){
+        public void SetManager(StateManager manager)
+        {
             _manager = manager;
         }
 
         public override void GetCommand()
         {
-            if(_manager == null) {
+            if (_manager == null)
+            {
                 Console.WriteLine("Manager not set. Set manager first");
                 return;
             }
 
             bool validCommand = false;
-            while(!validCommand){
+            while (!validCommand)
+            {
                 string command = Command.getString("Your command: ");
 
                 switch (command)
@@ -47,7 +51,7 @@ namespace CshIntermediate.Assignment2 {
                         break;
                 }
 
-                if(!validCommand) Console.WriteLine("Command not supported, please try another");
+                if (!validCommand) Console.WriteLine("Command not supported, please try another");
             }
         }
     }

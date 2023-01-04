@@ -3,8 +3,10 @@ using CshIntermediate.Assignment2;
 
 namespace CshIntermediate
 {
-    class Program {
-        static void Main(string[] args){
+    class Program
+    {
+        static void Main(string[] args)
+        {
             Assignment2.Assignment2.Run();
         }
     }
