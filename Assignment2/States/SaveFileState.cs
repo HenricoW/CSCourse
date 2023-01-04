@@ -15,6 +15,15 @@ namespace CshIntermediate.Assignment2
         public override void GetCommand()
         {
             string fileName = Command.getString("Enter a file name or 0 > ");
+            fileName = fileName.Split(".")[0]; // if extension is given
+
+            while (fileName != "0" && File.Exists($"./Assignment2/Files/{fileName}.txt"))
+            {
+                Console.WriteLine("That file name already exists. Please try another");
+
+                fileName = Command.getString("Enter a file name or 0 > ");
+                fileName = fileName.Split(".")[0]; // if extension is given
+            }
 
             // handle back choice
             int number = 1;
@@ -25,7 +34,6 @@ namespace CshIntermediate.Assignment2
                     return;
                 }
 
-            fileName = fileName.Split(".")[0]; // if extension is given
             try
             {
                 var fileHandler = File.Create($"./Assignment2/Files/{fileName}.txt");
