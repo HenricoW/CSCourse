@@ -76,4 +76,21 @@ namespace CshIntermediate.Assignment2
             _manager.SetState(_manager.prevState);
         }
     }
+
+    class ExitCommand : Command
+    {
+        public StateManager _manager { get; set; }
+
+        public ExitCommand(StateManager manager)
+        {
+            _manager = manager;
+        }
+        public override void Execute()
+        {
+            State? state;
+            if (!_manager.supportedStates.TryGetValue("Exit", out state)) { return; }
+
+            _manager.SetState(state);
+        }
+    }
 }

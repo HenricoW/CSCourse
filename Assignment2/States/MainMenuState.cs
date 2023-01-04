@@ -11,6 +11,7 @@ namespace CshIntermediate.Assignment2
             prompt += "S - Save a file\n";
             prompt += "N - Start a new game\n";
             prompt += "H - Display the help\n";
+            prompt += "X - Exit\n";
 
             Console.WriteLine(prompt);
         }
@@ -46,6 +47,9 @@ namespace CshIntermediate.Assignment2
                         break;
                     case "H":
                         validCommand = _manager.ChangeState("ShowHelp");
+                        break;
+                    case "X":
+                        validCommand = _manager.ChangeState("Exit");
                         break;
                     default:
                         break;

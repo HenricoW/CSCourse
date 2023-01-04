@@ -35,6 +35,9 @@ namespace CshIntermediate.Assignment2
             BackCommand backCommand = new BackCommand(manager);
             manager.AddCommand("Back", backCommand);
 
+            manager.AddCommand("Exit", new ExitCommand(manager));
+            manager.AddState("Exit", new ExitState(manager));
+
             manager.Run();
         }
     }

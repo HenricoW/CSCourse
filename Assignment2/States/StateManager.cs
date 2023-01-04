@@ -28,6 +28,8 @@ namespace CshIntermediate.Assignment2
             currentState.Display();
             currentState.GetCommand();
 
+            if (currentState.GetType() == typeof(ExitState)) return;
+
             State? state;
             if (!supportedStates.TryGetValue("MainMenu", out state)) { return; }
             SetState(state);
