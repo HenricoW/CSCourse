@@ -8,23 +8,29 @@ namespace CshIntermediate.Assignment2
         public static void Run()
         {
             MainMenuState mainMenuState = new MainMenuState();
-            string initCommandName = "ShowHelp";
+            string stateName = "ShowHelp";
             HelpCommand initCommand = new HelpCommand();
 
-            manager = new StateManager(mainMenuState, initCommandName, initCommand);
+            manager = new StateManager(stateName, mainMenuState, stateName, initCommand);
             mainMenuState.SetManager(manager);
 
             SaveFileState saveState = new SaveFileState(manager);
             SaveFileCommand saveCommand = new SaveFileCommand(manager);
-            manager.AddCommand("SaveFile", saveCommand);
+            stateName = "SaveFile";
+            manager.AddCommand(stateName, saveCommand);
+            manager.AddState(stateName, saveState);
 
             LoadFileState loadState = new LoadFileState(manager);
             LoadFileCommand loadCommand = new LoadFileCommand(manager);
-            manager.AddCommand("LoadFile", loadCommand);
+            stateName = "LoadFile";
+            manager.AddCommand(stateName, loadCommand);
+            manager.AddState(stateName, loadState);
 
             StartGameState startState = new StartGameState(manager);
             StartGameCommand startCommand = new StartGameCommand(manager);
-            manager.AddCommand("StartGame", startCommand);
+            stateName = "StartGame";
+            manager.AddCommand(stateName, startCommand);
+            manager.AddState(stateName, startState);
 
             BackCommand backCommand = new BackCommand(manager);
             manager.AddCommand("Back", backCommand);

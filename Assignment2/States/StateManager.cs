@@ -9,14 +9,17 @@ namespace CshIntermediate.Assignment2
         public State currentState { get; private set; }
         // all commands the state machine supports
         public Dictionary<string, Command> commands { get; private set; }
+        public Dictionary<string, State> supportedStates { get; private set; }
 
         // [if not static] constructor - set init state
-        public StateManager(State initialState, string commandName, Command initialCommand)
+        public StateManager(string initStateName, State initialState, string commandName, Command initialCommand)
         {
             prevState = initialState;
             currentState = initialState;
             commands = new Dictionary<string, Command>();
+            supportedStates = new Dictionary<string, State>();
             commands.Add(commandName, initialCommand);
+            supportedStates.Add(initStateName, initialState);
         }
 
         public void Run()
@@ -29,6 +32,11 @@ namespace CshIntermediate.Assignment2
         public void AddCommand(string commandName, Command command)
         {
             commands.Add(commandName, command);
+        }
+
+        public void AddState(string stateName, State state)
+        {
+            supportedStates.Add(stateName, state);
         }
 
         // change state method

@@ -19,7 +19,10 @@ namespace CshIntermediate.Assignment2
 
         public override void Execute()
         {
-            _manager.SetState(new LoadFileState(_manager));
+            State? state;
+            if (!_manager.supportedStates.TryGetValue("LoadFile", out state)) { return; }
+
+            _manager.SetState(state);
         }
     }
 
@@ -34,7 +37,10 @@ namespace CshIntermediate.Assignment2
 
         public override void Execute()
         {
-            _manager.SetState(new SaveFileState(_manager));
+            State? state;
+            if (!_manager.supportedStates.TryGetValue("SaveFile", out state)) { return; }
+
+            _manager.SetState(state);
         }
     }
 
@@ -49,7 +55,10 @@ namespace CshIntermediate.Assignment2
 
         public override void Execute()
         {
-            _manager.SetState(new StartGameState(_manager));
+            State? state;
+            if (!_manager.supportedStates.TryGetValue("StartGame", out state)) { return; }
+
+            _manager.SetState(state);
         }
     }
 
