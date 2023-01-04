@@ -23,9 +23,12 @@ namespace CshIntermediate.Assignment2
         static public int getInt(string prompt)
         {
             Console.Write(prompt);
-            var input  = Console.ReadLine();
+            var input = Console.ReadLine();
 
-            return input == null ? 0 : int.Parse(input);
+            int num;
+            if (!int.TryParse(input, out num)) return 0;
+
+            return num;
         }
 
         // command to change state
