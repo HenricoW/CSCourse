@@ -2,7 +2,8 @@
 
 namespace CshIntermediate
 {
-    abstract class Pet {
+    abstract class Pet
+    {
         public abstract string PetType { get; }
         public string name { get; private set; }
         public string sound { get; private set; }
@@ -21,9 +22,9 @@ namespace CshIntermediate
 
     class Dog : Pet
     {
-        public override string PetType {get { return "Dog"; } }
+        public override string PetType { get { return "Dog"; } }
 
-        public Dog(string _name, string _sound) : base(_name, _sound) {}
+        public Dog(string _name, string _sound) : base(_name, _sound) { }
 
         public override int move()
         {
@@ -40,8 +41,8 @@ namespace CshIntermediate
 
     class Bird : Pet
     {
-        public Bird(string _name, string _sound) : base(_name, _sound) {}
-        public override string PetType {get { return "Bird"; } }
+        public Bird(string _name, string _sound) : base(_name, _sound) { }
+        public override string PetType { get { return "Bird"; } }
 
         public override int move()
         {
@@ -56,8 +57,8 @@ namespace CshIntermediate
 
     class Lizzard : Pet
     {
-        public Lizzard(string _name, string _sound) : base(_name, _sound) {}
-        public override string PetType {get { return "Lizzard"; } }
+        public Lizzard(string _name, string _sound) : base(_name, _sound) { }
+        public override string PetType { get { return "Lizzard"; } }
 
         public override int move()
         {
@@ -72,8 +73,8 @@ namespace CshIntermediate
 
     class Fish : Pet
     {
-        public Fish(string _name, string _sound) : base(_name, _sound) {}
-        public override string PetType {get { return "Fish"; } }
+        public Fish(string _name, string _sound) : base(_name, _sound) { }
+        public override string PetType { get { return "Fish"; } }
 
         public override int move()
         {

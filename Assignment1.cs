@@ -2,8 +2,10 @@
 
 namespace CshIntermediate
 {
-    class Assignment1 {
-        public static void run(){
+    class Assignment1
+    {
+        public static void run()
+        {
             List<Pet> myPets = new List<Pet>();
 
             string mainPrompt = "Enter letter to create one of the following Pets\n";
@@ -16,7 +18,8 @@ namespace CshIntermediate
             // collect pets from user
             string letter = getString(mainPrompt);
             Console.WriteLine("");
-            while(letter != "X"){
+            while (letter != "X")
+            {
                 Pet pet; string name;
                 switch (letter.ToUpper())
                 {
@@ -43,29 +46,32 @@ namespace CshIntermediate
                 Console.WriteLine("");
                 letter = getString(mainPrompt);
             }
-            
+
             string secondPrompt = "Choose a pet and an action";
             string petChoices = "";
-            for (int i = 0; i < myPets.Count; i++) petChoices += $"{i+1} - {myPets[i].name} ({myPets[i].PetType}); ";
+            for (int i = 0; i < myPets.Count; i++) petChoices += $"{i + 1} - {myPets[i].name} ({myPets[i].PetType}); ";
             petChoices += "\n0 - to end\n";
             string petActions = "1 - Move, 2 - Sleep, 3 - Make sound";
             petActions += "\n0 - to end\n";
 
             Console.WriteLine(secondPrompt);
             int number = getInt(petChoices);
-            while(number != 0) {
-                if(number > myPets.Count) {
+            while (number != 0)
+            {
+                if (number > myPets.Count)
+                {
                     Console.WriteLine("Invalid entry. Exiting");
                     return;
                 }
-                if(number == 0) break;
+                if (number == 0) break;
 
                 Pet pet = myPets[number - 1];
                 Console.WriteLine($"You chose {pet.name}. Now choose an action");
                 number = getInt(petActions);
-                if(number == 0) break;
+                if (number == 0) break;
 
-                switch (number) {
+                switch (number)
+                {
                     case 1:
                         int meters = pet.move();
                         Console.WriteLine("");
@@ -94,16 +100,18 @@ namespace CshIntermediate
         }
 
         // helpers
-        static int getInt(string prompt){
+        static int getInt(string prompt)
+        {
             Console.Write(prompt);
-            var input  = Console.ReadLine();
+            var input = Console.ReadLine();
 
             return input == null ? 0 : int.Parse(input);
         }
 
-        static string getString(string prompt){
+        static string getString(string prompt)
+        {
             Console.Write(prompt);
-            var input  = Console.ReadLine();
+            var input = Console.ReadLine();
 
             return input == null ? "" : input;
         }
