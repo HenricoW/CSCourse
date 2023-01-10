@@ -1,6 +1,6 @@
 // See https://aka.ms/new-console-template for more information
 
-namespace CshIntermediate
+namespace CshIntermediate.Assignment1
 {
     abstract class Pet
     {
